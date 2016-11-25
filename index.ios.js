@@ -11,6 +11,7 @@ var DayItem = require('./src/dayItem');
 var DAYS = ['Sunday', 'Mondey', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 
+
 export default class timerReact extends Component {
   render() {
     return (
@@ -18,9 +19,14 @@ export default class timerReact extends Component {
         <Text style={styles.days}>
           Days of the week:
         </Text>
-        <DayItem  day={DAYS[3]} />
+        {this.days()}
       </View>
     );
+  };
+  days() {
+    return DAYS.map(function(day){
+      return <DayItem day={day} />
+    })
   }
 }
 
