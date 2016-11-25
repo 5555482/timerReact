@@ -1,0 +1,3 @@
+rootProject.name = 'timerReact'
+
+include ':app'
