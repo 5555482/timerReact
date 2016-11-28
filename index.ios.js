@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 
 var DayItem = require('./src/dayItem');
-var DAYS = ['Sunday', 'Mondey', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 export default class timerReact extends Component {
   render() {
@@ -19,9 +18,14 @@ export default class timerReact extends Component {
     );
   };
   days() {
-    return DAYS.map(function(day){
-      return <DayItem day={day} />
-    })
+    var daysItems = [];
+    for (var i = 0; i < 7; i++){
+      var day = Moment().add(i, 'days').format('dddd');
+      daysItems.push(
+        <DayItem day={day} daysUntil={i} />
+      )
+    }
+    return daysItems
   }
 }
 
